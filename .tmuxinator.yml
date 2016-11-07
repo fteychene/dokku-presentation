@@ -1,0 +1,15 @@
+name: dokku-presentation
+
+pre_window: source .env
+
+startup_window: 0
+
+windows:
+  - hello-app:
+    - ./scripts/start_hello_app.sh
+  - todo-app:
+    - ./scripts/start_todo_app.sh
+  - installation:
+    - ./scripts/init_scaleway_server.sh
+    - scp -oStrictHostKeyChecking=no scripts/install_dokku.sh root@$IP:~/install_dokku.sh
+    - ssh -oStrictHostKeyChecking=no root@$IP ./install_dokku.sh
