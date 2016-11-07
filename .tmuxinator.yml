@@ -2,7 +2,7 @@ name: dokku-presentation
 
 pre_window: source .env
 
-startup_window: 0
+startup_window: installation
 
 windows:
   - hello-app:
@@ -12,5 +12,6 @@ windows:
     - echo "Todo application" | figlet -w 300 | lolcat
     - ./scripts/start_todo_app.sh
   - installation:
+    - touch install.lock
     - ./scripts/init_scaleway_server.sh
     - ./scripts/drive_install_dokku.sh

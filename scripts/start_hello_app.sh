@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
+sleep 10
+
 APP_NAME="hello"
 ORIGIN_DIR=$(pwd)
 
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 BASE_DIR="$SCRIPTS_DIR/../hello-node-buildpack"
+
+while [ -f "install.lock" ]; do
+  sleep 1
+done
 
 if [ -d "$BASE_DIR/.git" ]; then
   rm -Rf $BASE_DIR/.git
@@ -18,15 +24,15 @@ git commit -m "Initial commit"
 
 echo
 echo "> git remote add dokku dokku@$BASE_DOMAIN:$APP_NAME"
-read
 git remote add dokku dokku@$BASE_DOMAIN:$APP_NAME
 
 echo
 echo "> git push dokku master"
-read
 git push dokku master
 
+echo
 echo "> #Open http://$APP_NAME.$BASE_DOMAIN"
+read
 google-chrome http://$APP_NAME.$BASE_DOMAIN
 
 echo
