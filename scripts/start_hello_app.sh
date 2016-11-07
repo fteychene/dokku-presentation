@@ -16,6 +16,7 @@ git init
 git add .
 git commit -m "Initial commit"
 
+echo
 echo "> git remote add dokku dokku@$BASE_DOMAIN:$APP_NAME"
 read
 git remote add dokku dokku@$BASE_DOMAIN:$APP_NAME

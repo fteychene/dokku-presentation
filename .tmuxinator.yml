@@ -6,10 +6,11 @@ startup_window: 0
 
 windows:
   - hello-app:
+    - echo "Hello application" | figlet -w 300 | lolcat
     - ./scripts/start_hello_app.sh
   - todo-app:
+    - echo "Todo application" | figlet -w 300 | lolcat
     - ./scripts/start_todo_app.sh
   - installation:
     - ./scripts/init_scaleway_server.sh
-    - scp -oStrictHostKeyChecking=no scripts/install_dokku.sh root@$IP:~/install_dokku.sh
-    - ssh -oStrictHostKeyChecking=no root@$IP ./install_dokku.sh
+    - ./scripts/drive_install_dokku.sh
