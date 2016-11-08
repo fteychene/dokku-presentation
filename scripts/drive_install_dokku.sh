@@ -4,6 +4,8 @@ scp -oStrictHostKeyChecking=no scripts/install_dokku.sh root@$BASE_DOMAIN:~/inst
 
 ssh -oStrictHostKeyChecking=no root@$BASE_DOMAIN ./install_dokku.sh
 
+echo $BASE_DOMAIN | xclip -selection c
+
 google-chrome http://$BASE_DOMAIN
 
 read
