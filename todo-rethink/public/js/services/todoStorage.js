@@ -8,6 +8,10 @@ todomvc.factory('todoStorage', function ($http) {
   var STORAGE_ID = 'todos-angularjs';
 
   return {
+    hostname: function() {
+      var url = '/hostname';
+      return $http.get(url)
+    },
     get: function () {
       var url = '/todos';
       return $http.get(url);

@@ -2,6 +2,7 @@ var async = require('async');
 var express = require('express');
 var bodyParser = require('body-parser');
 var r = require('rethinkdb');
+var os = require("os");
 
 var config = require(__dirname + '/config.js');
 
@@ -22,6 +23,9 @@ app.route('/todos/:id')
   .get(getTodoItem)
   .put(updateTodoItem)
   .delete(deleteTodoItem);
+
+app.route('/hostname')
+.get(getHostname)
 
 //If we reach this middleware the route could not be handled and must be unknown.
 app.use(handle404);
@@ -81,6 +85,10 @@ function getTodoItem(req, res, next) {
 
     res.json(result);
   });
+}
+
+function getHostname(req, res, next) {
+  res.json({"hostname": os.hostname()});
 }
 
 /*

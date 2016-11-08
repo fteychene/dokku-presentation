@@ -11,3 +11,5 @@ google-chrome http://$BASE_DOMAIN
 read
 
 rm -f install.lock
+
+exit

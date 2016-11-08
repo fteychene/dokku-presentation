@@ -12,7 +12,7 @@
 		<script type="text/ng-template" id="todomvc-index.html">
 			<section id="todoapp" ng-controller="TodoCtrl">
 				<header id="header">
-					<h1>todos</h1>
+					<h1>Todo</h1>
 					<form id="todo-form" ng-submit="addTodo()">
 						<input id="new-todo" placeholder="What needs to be done?" ng-model="newTodo" autofocus>
 					</form>
@@ -52,6 +52,7 @@
 				</footer>
 			</section>
 			<footer id="info">
+				<p>Host : {{hostname}}</p>
 				<p>Double-click to edit a todo</p>
 				<p>Credits:
 					<a href="http://twitter.com/cburgdorf">Christoph Burgdorf</a>, <a href="http://ericbidelman.com">Eric Bidelman</a>, <a href="http://jacobmumm.com">Jacob Mumm</a> and <a href="http://igorminar.com">Igor Minar</a>

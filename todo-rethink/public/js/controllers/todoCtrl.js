@@ -9,6 +9,10 @@
 todomvc.controller('TodoCtrl', function TodoCtrl($scope, $routeParams, todoStorage, filterFilter) {
   $scope.todos = [];
 
+  todoStorage.hostname().success(function(payload) {
+    $scope.hostname = payload.hostname;
+  });
+
   todoStorage.get().success(function(todos) {
     $scope.todos = todos;
   }).error(function(error) {
