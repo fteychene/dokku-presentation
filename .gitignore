@@ -1,3 +1,5 @@
 # Local presentation environment
 .env
 .vagrant
+
+ubuntu*.log
